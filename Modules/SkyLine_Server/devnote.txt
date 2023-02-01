@@ -1,3 +1,0 @@
-//DEV NOTE 1: When running CSC, if a function has two params but only one argument in its function call, ensure that the function call has the two arguments
-//or add a defer recover statement which checks for the length and outputs it on the system. Currently the error system within CSC is horrible and panics are 
-//everywhere however we can add panic channels to check, verify and output the statements
