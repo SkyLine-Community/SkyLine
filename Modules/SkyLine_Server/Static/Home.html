@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The SkyLine Programming Language</title>
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <nav>
+        <a href="/">HOME</a>
+        <a href="https://discord.gg/br7Q4nv8sB">DISCORD</a>
+        <a href="https://github.com/SkyLine-Community/SkyLine">GITHUB</a>
+        <a href="#">DOCS</a>
+        <div id="indicator"></div>
+    </nav>
+    <div class="container">
+        <center>
+            SkyLine
+        </center>
+        <div class="stack" style="--stacks: 3;">
+            <span style="--index: 0;">For Hackers By Hackers</span>
+            <span style="--index: 1;">For Hackers By Hackers</span>
+            <span style="--index: 2;">For Hackers By Hackers</span>
+        </div>
+        <div class="buttons">
+            <hr>
+            <br>
+            <a href="/Reference/Tutorials.html">Learn</a>
+            <a href="/Reference/Hello.html">Reference</a>
+            <a href="javascript:void(0);">Editor</a>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- STYLE SHEET STATIC -->
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+    :root {
+        --background: #060608;
+        --color: #FAFAFA;
+        --color-red: #ec1840;
+        --color-purple: #7a18ec;
+        --color-white: #fff;
+        --color-black-1: #111;
+        --color-black-2: #222;
+        --color-black-3: #444;
+        --speed-normal: 0.5s;
+        --speed-fast: 0.8s;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        font-family: Arial;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--background);
+    }
+
+    .container {
+        margin-top: -400px;
+        color: var(--color);
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .right {
+        text-align: right;
+        width: 100%;
+    }
+
+    .stack {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .stack span {
+        font-weight: bold;
+        grid-row-start: 1;
+        grid-column-start: 1;
+        font-size: 3rem;
+        --stack-height: calc(100% / var(--stacks) - 1px);
+        --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+        --clip-top: calc(var(--stack-height) * var(--index));
+        --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+        clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+        animation: stack 340ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+    }
+
+    .stack span:nth-child(odd) {
+        --glitch-translate: 8px;
+    }
+
+    .stack span:nth-child(even) {
+        --glitch-translate: -8px;
+    }
+
+    @keyframes stack {
+        0% {
+            opacity: 0;
+            transform: translateX(-50%);
+            text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+        }
+
+        ;
+
+        60% {
+            opacity: 0.5;
+            transform: translateX(50%);
+        }
+
+        80% {
+            transform: none;
+            opacity: 1;
+            text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+        }
+
+        100% {
+            text-shadow: none;
+        }
+    }
+
+    @keyframes glitch {
+        0% {
+            text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+            transform: translate(var(--glitch-translate));
+        }
+
+        2% {
+            text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+        }
+
+        4%,
+        100% {
+            text-shadow: none;
+            transform: none;
+        }
+    }
+
+    body {
+        margin: 0;
+    }
+
+    nav {
+        position: absolute;
+        top: 3%;
+        right: 100px;
+        left: 0px;
+        width: 319px;
+        display: table;
+        margin: 0 auto;
+        transform: translateY(-50%);
+    }
+
+    .buttons hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid red;
+        margin: 1em 0;
+        padding: 0;
+    }
+
+    .buttons a {
+        font-size: 25px;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        position: relative;
+        width: 180px;
+        height: 60px;
+        margin: 20px;
+        line-height: 60px;
+        letter-spacing: 2px;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--color-white);
+        border: 1px solid var(--color-purple);
+    }
+
+    .buttons a:hover {
+        color: #9D00FF;
+    }
+
+    @keyframes animate {
+        0% {
+            background-position-y: 0;
+
+        }
+
+        100% {
+            background-position-y: -480px;
+        }
+    }
+
+
+    nav a {
+        position: relative;
+        width: 33.333%;
+        display: table-cell;
+        text-align: center;
+        color: #949494;
+        text-decoration: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        padding: 10px 20px;
+        transition: 0.2s ease color;
+    }
+
+    nav a:before,
+    nav a:after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 0.2s ease transform;
+    }
+
+    nav a:before {
+        top: 0;
+        left: 10px;
+        width: 6px;
+        height: 6px;
+    }
+
+    nav a:after {
+        top: 5px;
+        left: 18px;
+        width: 4px;
+        height: 4px;
+    }
+
+
+    #indicator {
+        position: absolute;
+        left: 5%;
+        bottom: 0;
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 5px;
+        transition: 0.2s ease left;
+    }
+
+    nav a:hover {
+        color: #9D00FF;
+    }
+
+    nav a:hover:before,
+    nav a:hover:after {
+        transform: scale(1);
+    }
+
+    nav a:nth-child(1):hover~#indicator {
+        background: linear-gradient(130deg, #9D00FF, #00e2ff);
+    }
+
+    nav a:nth-child(2):hover~#indicator {
+        left: 40%;
+        background: linear-gradient(130deg, #9D00FF, #00e2ff);
+    }
+
+    nav a:nth-child(3):hover~#indicator {
+        left: 65%;
+        background: linear-gradient(130deg, #9D00FF, #00e2ff);
+    }
+
+    nav a:nth-child(4):hover~#indicator {
+        left: 88%;
+        background: linear-gradient(130deg, #9D00FF, #00e2ff);
+    }
+</style>
